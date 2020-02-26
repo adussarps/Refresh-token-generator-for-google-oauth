@@ -115,7 +115,10 @@ def GetDSApiCredOrDie(options):
     if DSAPICRED_ENV in os.environ:
         cred = os.environ[DSAPICRED_ENV].strip()
     else:
-        print("Cannot find credentials.")
+        print(
+            """Cannot find credentials. You can pass them: client id, client secret, and refresh token via the --cred
+            flag or the DSAPICRED environment variable.
+        """)
         sys.exit(-1)
     return cred
 
